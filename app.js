@@ -19,6 +19,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+function fuckyoumiddleware(req, res, next) {
+  return res.send("fuck you");
+}
+
+app.use(fuckyoumiddleware);
+
+
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
